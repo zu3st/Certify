@@ -16,6 +16,12 @@ jobs:
     
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
+          
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.2.0
+
+    - name: Restore Packages
+      run: nuget restore Certify.sln    
       
     - name: Build solution
       run:  msbuild Certify.sln -t:rebuild -verbosity:diag -property:Configuration=Release
