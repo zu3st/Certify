@@ -20,8 +20,14 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.2.0
 
-    - name: Restore Packages
+    - name: Restore packages
       run: nuget restore Certify.sln    
       
     - name: Build solution
       run:  msbuild Certify.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Certify
+        path: Certify\Certify\bin\Release\Certify.exe
