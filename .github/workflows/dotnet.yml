@@ -30,4 +30,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Certify
-        path: Certify\Certify\bin\Release\Certify.exe
+        path: Certify\bin\Release\Certify.exe
